@@ -1,18 +1,18 @@
 ######## INSTALL ########
 
 # Set the base image
-FROM sapaig/debian-12
+FROM freeasso/debian-12
 
 
 ## Installation d'Apache 2
 RUN apt-get update && apt-get install -y apt-utils apache2 apache2-doc apache2-utils libexpat1 ssl-cert libapache2-mod-passenger
 
 ## Variables d'environnement
-ENV DOCUMENTROOT www
-ENV SERVERNAME apache.local.fr
-ENV ERRORLOG error.log
-ENV ACCESSLOG access.log
-ENV APP_SERVERNAME localhost
+ENV DOCUMENTROOT=www
+ENV SERVERNAME=apache.local.fr
+ENV ERRORLOG=error.log
+ENV ACCESSLOG=access.log
+ENV APP_SERVERNAME=localhost
 
 ## Suppression du vhost par défaut
 RUN rm -f /etc/apache2/sites-enabled/*
